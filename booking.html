@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .booking {
+            padding: 80px 0;
+        }
+
+        .booking h2 {
+            color: #007bff;
+        }
+
+        .booking-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -24,15 +42,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">عن الشركة</a></li>
-                    <li class="nav-item"><a class="nav-link" href="umrah.html">خدمات العمرة</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hajj.html">خدمات الحج</a></li>
-                    <li class="nav-item"><a class="nav-link" href="domestic.html">الطيران الداخلي</a></li>
-                    <li class="nav-item"><a class="nav-link" href="international.html">الطيران الخارجي</a></li>
-                    <li class="nav-item"><a class="nav-link" href="offers.html">العروض</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="booking.html">الحجوزات</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">تواصل معنا</a></li>
                     <li class="nav-item"><a class="nav-link" href="faq.html">الأسئلة الشائعة</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="booking.html">الحجوزات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">تسجيل الدخول</a></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +53,7 @@
     <section class="booking py-5">
         <div class="container">
             <h2 class="text-center mb-5">الحجوزات</h2>
-            <form id="booking-form">
+            <form id="booking-form" class="booking-form">
                 <div class="mb-3">
                     <label class="form-label">نوع الخدمة</label>
                     <select class="form-control" id="service" required>
@@ -73,4 +85,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
