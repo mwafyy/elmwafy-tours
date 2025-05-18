@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elmwafy Tours - الحجوزات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Elmwafy Tours" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">عن الشركة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="umrah.html">خدمات العمرة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hajj.html">خدمات الحج</a></li>
+                    <li class="nav-item"><a class="nav-link" href="domestic.html">الطيران الداخلي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="international.html">الطيران الخارجي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="offers.html">العروض</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تواصل معنا</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">الأسئلة الشائعة</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="booking.html">الحجوزات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">تسجيل الدخول</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="booking py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">الحجوزات</h2>
+            <form id="booking-form">
+                <div class="mb-3">
+                    <label class="form-label">نوع الخدمة</label>
+                    <select class="form-control" id="service" required>
+                        <option value="عمرة">عمرة</option>
+                        <option value="حج">حج</option>
+                        <option value="طيران داخلي">طيران داخلي</option>
+                        <option value="طيران خارجي">طيران خارجي</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">تاريخ السفر</label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <button type="submit" class="btn btn-primary">احجز الآن</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>© 2025 Elmwafy Tours. جميع الحقوق محفوظة.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="contact.html" class="text-white">تواصل معنا</a></li>
+                <li class="list-inline-item"><a href="faq.html" class="text-white">الأسئلة الشائعة</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

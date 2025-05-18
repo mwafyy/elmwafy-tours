@@ -1,0 +1,126 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <br>
+    <br>
+    <br>
+    <title>Elmwafy Tours - الطيران الداخلي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Elmwafy Tours" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">عن الشركة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="umrah.html">خدمات العمرة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hajj.html">خدمات الحج</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="domestic.html">الطيران الداخلي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="international.html">الطيران الخارجي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="offers.html">العروض</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">تواصل معنا</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">الأسئلة الشائعة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">الحجوزات</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Domestic Flights Section -->
+    <section class="domestic py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">الطيران الداخلي</h2>
+            <p class="text-center mb-4">ابحث عن رحلاتك الداخلية بسهولة وسرعة.</p>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">حجز رحلة داخلية</h5>
+                            <form id="domestic-flight-form">
+                                <div class="mb-3">
+                                    <label for="from" class="form-label">من</label>
+                                    <input type="text" class="form-control" id="from" placeholder="القاهرة" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="to" class="form-label">إلى</label>
+                                    <input type="text" class="form-control" id="to" placeholder="الإسكندرية" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="date" class="form-label">تاريخ السفر</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">ابحث</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>© 2025 Elmwafy Tours. جميع الحقوق محفوظة.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="contact.html" class="text-white">تواصل معنا</a></li>
+                <li class="list-inline-item"><a href="faq.html" class="text-white">الأسئلة الشائعة</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
