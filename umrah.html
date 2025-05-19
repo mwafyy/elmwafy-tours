@@ -12,9 +12,10 @@
         .umrah {
             padding: 80px 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: auto;
         }
 
         .umrah h2 {
@@ -26,18 +27,18 @@
 
         .package-container {
             display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-content: center; /* توسيط أفقي للبطاقات */
-            align-items: center; /* توسيط عمودي للبطاقات (إذا لزم الأمر) */
+            width: 95%;
+            max-width: 600px;
+            margin: 1rem auto;
+            flex-direction: column;
+            align-items: center;
         }
 
         .umrah-package {
             display: none;
-            flex: 0 0 calc(33.33% - 1rem);
-            max-width: calc(33.33% - 1rem);
-            margin: 0.5rem;
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 1rem 0;
         }
 
         .umrah-package.active {
@@ -50,44 +51,48 @@
         }
 
         .card-img-top {
-            max-height: 250px;
+            max-height: 300px;
             width: 100%;
             object-fit: cover;
         }
 
         .card-body {
-            padding: 1.25rem;
+            padding: 1rem;
         }
 
         .card-title {
-            font-size: 1.35rem;
+            font-size: 1.2rem;
+            text-align: center;
         }
 
         .card-text {
-            font-size: 1.1rem;
+            font-size: 1rem;
+            text-align: center;
         }
 
         .navigation-buttons {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         .navigation-buttons button {
-            margin: 0 0.75rem;
+            margin: 0 0.5rem;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
         }
 
         .package-indicators {
             text-align: center;
-            margin-top: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         .package-indicators span {
             display: inline-block;
-            width: 0.85rem;
-            height: 0.85rem;
+            width: 0.7rem;
+            height: 0.7rem;
             border-radius: 50%;
             background-color: #bbb;
-            margin: 0 0.35rem;
+            margin: 0 0.25rem;
             cursor: pointer;
         }
 
@@ -125,10 +130,7 @@
 
     <section class="umrah py-5">
         <div class="container">
-            <br>
-            <br>
-            
-            <h3 class="text-center mb-5">خدمات العمرة</h2>
+            <h2 class="text-center mb-5">خدمات العمرة</h2>
             <div class="package-container">
                 <div class="umrah-package active" id="package-1">
                     <div class="card">
